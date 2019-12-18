@@ -9,7 +9,7 @@
 
 /* Global Vars */
 
-$filepath = "/var/www/html/portal/tmp/kOz_Tirannus.d2s";
+$filepath = "kOz_Tirannus.d2s";
 $buffer = array();
 $char = array();
 
@@ -4920,4 +4920,5 @@ parseItemList();
 parseCorpse();
 parseMercenary();
 
-echo json_encode($char);
+header('Content-Type: application/json');
+exit(json_encode($char));
