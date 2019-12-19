@@ -4504,9 +4504,11 @@ function parseSimpleBits(&$item) {
 			case 'weapon':
 				$typeName = $weaponCodes[$item['Type']];
 				$baseDamage = $weaponDamageMap[$item['TypeID']];
-				if($baseDamage && $item['Ethereal'] == 1) 
+				if($baseDamage && $item['Ethereal'] == 1) {
 					foreach($baseDamage as $index => $value)
 						$baseDamage[$index] = $value * 1.5;
+					$item['baseDamage'] = $baseDamage;
+				}
 				break;
 			case 'other':
 				$typeName = $miscCodes[$item['Type']];
