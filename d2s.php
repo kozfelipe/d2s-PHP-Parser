@@ -4892,7 +4892,7 @@ function parseMercenary() {
 				break;
 			$pointer['index']++;
 			if($pointer['index'] > 5000)
-				exit("Failed to find merc header");
+				exit(json_encode(array('error' => 'Failed to find merc header')));
 		}
 		if($merctype != 0) {
 			//TODO
