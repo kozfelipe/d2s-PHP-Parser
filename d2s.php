@@ -4675,7 +4675,7 @@ function parseItemList() {
 	$pointer['bits'] = 0;
 	$itemList = array();
 
-	for($i=0;$i<$itemcount;$i++) {
+	for($x=0;$x<$itemcount;$x++) {
 		
 		$readBits = 0;
 		$parsed = array();
