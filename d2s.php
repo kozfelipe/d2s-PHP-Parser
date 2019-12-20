@@ -4788,6 +4788,7 @@ function parseItemList() {
 			if($parsed['Socketed'] == true) {
 				$parsed['TotalNrOfSockets'] = reverseBits(ReadBits64(4, true), 4);
 				$readBits += 4;
+				$parsed['SocketedItems'] = array();
 			}
 			
 			$setListValue = 0;
@@ -4829,7 +4830,7 @@ function parseItemList() {
 			
 		}
 		
-		if($locationMap[$parsed['LocationID']] == 'socketed') {
+		if($parsed['LocationID'] == 'socketed') {
 			$last = count($itemList) - 1;
 			
 			if($itemList[$last]['TypeID'] == 'weapon' && isset($socketablesWeapons[$parsed['Type']])) 
@@ -4841,7 +4842,6 @@ function parseItemList() {
 			if($itemList[$last]['TypeID'] == 'shield' && isset($socketablesShields[$parsed['Type']])) 
 				$parsed['MagicAttributes'] = $socketablesShields[$parsed['Type']];
 			
-			$itemList[$last]['SocketedItems'] = array();
 			array_push($itemList[$last]['SocketedItems'], $parsed);
 		}
 		else {
