@@ -4637,7 +4637,7 @@ function parseSkills() {
 		array_push($skillvalues, $buffer[$i]);
 	$pointer['index'] += 30;
 	foreach($skillvalues as $offset => $points)
-		$skills[$skillmap[$skillclass[$char['class']]+$offset]] = $points;
+		$skills[$skillmap[$skillclass[$char['classe']]+$offset]] = $points;
 		
 	$char['skills'] = $skills;
 		
