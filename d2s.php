@@ -4289,7 +4289,7 @@ function parseHeader() {
 	# class
 	switch($buffer[40]) {
 		case 0:
-			$class = 'Amazona';
+			$class = 'Amazon';
 			break;
 		case 1:
 			$class = 'Sorceress';
@@ -4298,19 +4298,19 @@ function parseHeader() {
 			$class = 'Necromancer';
 			break;
 		case 3:
-			$class = 'Paladino';
+			$class = 'Paladin';
 			break;
 		case 4:
-			$class = 'Barbaro';
+			$class = 'Barbarian';
 			break;
 		case 5:
-			$class = 'Druida';
+			$class = 'Druid';
 			break;
 		case 6:
-			$class = 'Assassina';
+			$class = 'Assassin';
 			break;
 		default:
-			$class = 'Desconhecido';
+			$class = 'Unknown';
 			break;
 	}
 	$char['classe'] = $class;
@@ -4328,7 +4328,7 @@ function parseHeader() {
 				$title = 'Patriarch';
 			break;
 		default:
-			$title = 'Desconhecido';
+			$title = 'Unknown';
 			break;
 	}
 	$char['titulo'] = $title;
@@ -4379,22 +4379,22 @@ function parseAttributes() {
 	);
 	$attributes = array();
 	$attributemap = array(
-		0 => array('name' => 'Força', 'length' => 10, 'value' => 0),
-		1 => array('name' => 'Energia', 'length' => 10, 'value' => 0),
-		2 => array('name' => 'Dextreza', 'length' => 10, 'value' => 0),
-		3 => array('name' => 'Vitalidade', 'length' => 10, 'value' => 0),
-		4 => array('name' => 'Pontos de Status', 'length' => 10, 'value' => 0),
-		5 => array('name' => 'Pontos de Skill', 'length' => 8, 'value' => 0),
-		6 => array('name' => 'HP atual', 'length' => 21, 'value' => 0),
-		7 => array('name' => 'HP Máximo', 'length' => 21, 'value' => 0),
-		8 => array('name' => 'Mana atual', 'length' => 21, 'value' => 0),
-		9 => array('name' => 'Mana Máxima', 'length' => 21, 'value' => 0),
-		10 => array('name' => 'Stamina Atual', 'length' => 21, 'value' => 0),
-		11 => array('name' => 'Stamina Máxima', 'length' => 21, 'value' => 0),
-		12 => array('name' => 'Level', 'length' => 7, 'value' => 0),
-		13 => array('name' => 'Experiência', 'length' => 32, 'value' => 0),
-		14 => array('name' => 'Gold Inventário', 'length' => 25, 'value' => 0),
-		15 => array('name' => 'Gold Baú', 'length' => 25, 'value' => 0),
+		0 => array('name' => 'strength', 'length' => 10, 'value' => 0),
+		1 => array('name' => 'energy', 'length' => 10, 'value' => 0),
+		2 => array('name' => 'dexterity', 'length' => 10, 'value' => 0),
+		3 => array('name' => 'vitality', 'length' => 10, 'value' => 0),
+		4 => array('name' => 'stat_points', 'length' => 10, 'value' => 0),
+		5 => array('name' => 'skill_points', 'length' => 8, 'value' => 0),
+		6 => array('name' => 'current_hp', 'length' => 21, 'value' => 0),
+		7 => array('name' => 'max_hp', 'length' => 21, 'value' => 0),
+		8 => array('name' => 'current_mana', 'length' => 21, 'value' => 0),
+		9 => array('name' => 'max_mana', 'length' => 21, 'value' => 0),
+		10 => array('name' => 'current_stamina', 'length' => 21, 'value' => 0),
+		11 => array('name' => 'max_stamina', 'length' => 21, 'value' => 0),
+		12 => array('name' => 'level', 'length' => 7, 'value' => 0),
+		13 => array('name' => 'experience', 'length' => 32, 'value' => 0),
+		14 => array('name' => 'inventory_gold', 'length' => 25, 'value' => 0),
+		15 => array('name' => 'stash_gold', 'length' => 25, 'value' => 0),
 	);
 	
 	while(true) { 
@@ -4617,13 +4617,13 @@ function parseSkills() {
 	$skills = array();
 	
 	$skillclass = array(
-		'Amazona' => 6,
-		'Sorceress' => 36,
+		'Amazon' => 6,
+		'Sorceress' => 301,
 		'Necromancer' => 66,
-		'Paladino' => 96,
-		'Barbaro' => 126,
-		'Druida' => 221,
-		'Assassina' => 251,
+		'Paladin' => 96,
+		'Barbarian' => 126,
+		'Druid' => 221,
+		'Assassin' => 251,
 	);
 	
 	# start skill section
