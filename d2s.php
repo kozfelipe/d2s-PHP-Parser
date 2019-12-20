@@ -4796,31 +4796,32 @@ function parseItemList() {
 				$setListValue = reverseBits(ReadBits64(5, true), 5);
 				$readBits += 5;
 				$parsed['SetListCount'] = $setListMap[$setListValue];
-				if($parsed['SetListCount'] > 0) {
-					$parsed['SetAttributes'] = array();
-					for($i=0;$i<$parsed['SetListCount'];$i++) {
-						$MagicalList = parseMagicalList();
-						$readBits += $MagicalList[1];
-						array_push($parsed['SetAttributes'], $MagicalList[0]);
-					}
-					$reqSetIDs = $setReqIDsMap[$parsed['SetID']];
-					if($reqSetIDs)
-						$parsed['SetAttributesIDsReq'] = $reqSetIDs;
-					else {
-						$parsed['SetAttributesNumReq'] = array();
-						for($i=0;$i<5;$i++) {
-							if($setListValue & (1 << $i) == 0)
-								continue;
-							$parsed['SetAttributesNumReq'] = $reqSetIDs;
-						}
-						array_push($parsed['SetAttributesNumReq'], $i+2);
-					}
-				}
 			}
 			
 			$MagicalList = parseMagicalList();
 			$readBits += $MagicalList[1];
 			$parsed['MagicAttributes'] = $MagicalList[0];
+			
+			if($parsed['SetListCount'] > 0) {
+				$parsed['SetAttributes'] = array();
+				for($i=0;$i<$parsed['SetListCount'];$i++) {
+					$MagicalList = parseMagicalList();
+					$readBits += $MagicalList[1];
+					array_push($parsed['SetAttributes'], $MagicalList[0]);
+				}
+				$reqSetIDs = $setReqIDsMap[$parsed['SetID']];
+				if($reqSetIDs)
+					$parsed['SetAttributesIDsReq'] = $reqSetIDs;
+				else {
+					$parsed['SetAttributesNumReq'] = array();
+					for($i=0;$i<5;$i++) {
+						if($setListValue & (1 << $i) == 0)
+							continue;
+						$parsed['SetAttributesNumReq'] = $reqSetIDs;
+					}
+					array_push($parsed['SetAttributesNumReq'], $i+2);
+				}
+			}
 
 			if($parsed['GivenRuneword'] == 1) {
 				$MagicalList = parseMagicalList();
